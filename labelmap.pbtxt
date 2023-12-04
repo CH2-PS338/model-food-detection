@@ -1,0 +1,20 @@
+item {
+  id: 1
+  name: 'kangkung'
+}
+
+item {
+  id: 2
+  name: 'nasi putih'
+}
+
+item {
+  id: 3
+  name: 'pisang'
+}
+
+item {
+  id: 4
+  name: 'telur-rebus'
+}
+
