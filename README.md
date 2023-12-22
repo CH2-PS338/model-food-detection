@@ -2,7 +2,7 @@
 
 ## Overview
 
-This repository contains a machine learning model for food detection using TensorFlow and Keras. The model is designed to identify and classify different types of food items. The project also utilizes Pandas for data manipulation, Matplotlib for visualization, and the OS module for file system operations.
+This repository contains a machine learning model for food detection using transfer learning using MobileNetV2 and converted into TFLite. The model is designed to identify and detect types of food items. The project also utilizes OS module for file system operations, Tensorflow for transfer learning, anf Tensorand for monitoring the training.
 
 ## Technologies Used
 
@@ -10,11 +10,9 @@ This repository contains a machine learning model for food detection using Tenso
 
 2. **Keras**: A high-level neural networks API, written in Python and capable of running on top of TensorFlow.
 
-3. **Pandas**: A data manipulation library for Python, providing data structures for efficiently storing and manipulating large datasets.
+3. **Matplotlib**: A 2D plotting library for Python, used for creating static, animated, and interactive visualizations.
 
-4. **Matplotlib**: A 2D plotting library for Python, used for creating static, animated, and interactive visualizations.
-
-5. **OS module**: A Python module that provides a way to interact with the operating system, allowing file system operations.
+4. **OS module**: A Python module that provides a way to interact with the operating system, allowing file system operations.
 
 ## Steps to Replicate
 
@@ -32,30 +30,30 @@ git clone https://github.com/CH2-PS338/model-food-detection.git
 
 ### Install Dependencies
 
-Navigate to the project directory and install the required dependencies using:
+This project using pretrained model in tensorflow model zoo:
 
 ```bash
-pip install -r requirements.txt
+(https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/tf2_detection_zoo.md
 ```
 
 ### Data Preparation
 
 Prepare your dataset and place it in the designated data directory.
 
-### Train the Model
+### Pretrained model
 
-Run the following command to train the machine learning model:
+This link to pretrained model:
 
-```bash
-python train_model.py
+```bash[
+http://download.tensorflow.org/models/object_detection/tf2
 ```
 
 ### Evaluate the Model
 
-Evaluate the performance of the trained model:
+Evaluate the performance of the trained model using mAP:
 
 ```bash
-python evaluate_model.py
+calculate_map_cartucho.py
 ```
 
 ### Make Predictions
@@ -66,12 +64,11 @@ Use the trained model to make predictions:
 python make_predictions.py
 ```
 
-### Visualize Results
+### Convert to TFLite
 
-Visualize the results using Matplotlib:
+Convert to TFLite using TFLite Converter
 
 ```bash
-python visualize_results.py
+converter = tf.lite.TFLiteConverter.from_saved_model('/content/custom_model_lite/saved_model')
+tflite_model = converter.convert()
 ```
-
-Feel free to customize this README based on your project's specific structure and requirements. Additionally, provide information about the dataset used, model architecture, and any other relevant details.
